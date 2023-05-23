@@ -1,0 +1,23 @@
+export const API_ENDPOINT = 'http://localhost:5001';
+const LISTING = `${API_ENDPOINT}/api/listing`;
+const REVIEWS = `${API_ENDPOINT}/api/review`;
+export const LISTING_CALENDAR = `${API_ENDPOINT}/api/listingCalendar`;
+export const RESERVED_CALENDAR = `${API_ENDPOINT}/api/reservedCalendar`;
+const USER_API = `${API_ENDPOINT}/api/user`;
+export const CUSTOMER_API = `${API_ENDPOINT}/api/customer`;
+export const HOST_API = `${API_ENDPOINT}/api/host`;
+export const PAYMENT_API = `${API_ENDPOINT}/api/payment`;
+export const LISTING_API = `${LISTING}`;
+export const LISTING_BY_HOST_ID = `${LISTING_API}/listingByHost`
+export const LISTING_BY_IDENTIFIER = `${LISTING_CALENDAR}/listingCalendarByIdentifier`
+export const UPDATE_LICENSE_OF_LISTING_API = `${LISTING_API}/updateLicense`
+export const DELETE_LISTING_CALENDAR = `${LISTING_CALENDAR}`
+export const REVIEW_BY_ID = `${REVIEWS}`;
+export const REVIEW_BY_LISTING_ID = `${REVIEWS}/reviewsForListing`;
+export const REVIEW_BY_HOST_ID = `${REVIEWS}/reviewsForHost`;
+export const CALENDAR_BY_LISTING_ID = `${LISTING_CALENDAR}/listingCalendarsByListing`
+export const RESERVED_CALENDAR_BY_USER_ID = `${RESERVED_CALENDAR}/reservedCalendarsByCustomer`
+export const AUTHENTICATE= `${USER_API}/authenticateUser`;
+export const LISTING_CALENDAR_BY_SEARCH_QUERY = `${LISTING_CALENDAR}/listingCalendarsBySearchQuery`
+
+export const REVIEW_API = `${API_ENDPOINT}/api/review`

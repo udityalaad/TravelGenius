@@ -1,0 +1,2 @@
+1] Microservices:  Automated (Instruction are provided in Report and Readme)
+2] Front-end:	   Manual (Provided in 'ece656_frontend/FrontendTests.xlsx’)

@@ -1,0 +1,326 @@
+-- *****************************************
+-- 			References
+-- *****************************************
+-- 	1] Email-Regular Expression: 
+-- 		(https://stackoverflow.com/questions/15560004/mysql-check-constraint-for-email-addresses)
+-- 	2] Regualar Expression:
+--		(https://regex101.com/)
+-- *****************************************
+
+
+-- *************************************************************************************************
+--				Cleanup
+-- *************************************************************************************************
+-- Stored Procedures
+DROP PROCEDURE IF EXISTS procedure_insertCustomer;
+
+DROP PROCEDURE IF EXISTS procedure_insertHost;
+DROP PROCEDURE IF EXISTS procedure_updateHost;
+
+DROP PROCEDURE IF EXISTS procedure_insertListing;
+DROP PROCEDURE IF EXISTS procedure_deleteListing;
+
+DROP PROCEDURE IF EXISTS procedure_insertPayment;
+
+DROP PROCEDURE IF EXISTS procedure_insertListingCalendar;
+DROP PROCEDURE IF EXISTS procedure_insertReservedCalendar;
+
+DROP PROCEDURE IF EXISTS procedure_insertReview;
+
+DROP PROCEDURE IF EXISTS procedure_insertMultivaluedAttributes;
+DROP PROCEDURE IF EXISTS procedure_insertAmenities;
+DROP PROCEDURE IF EXISTS procedure_insertHostVerifications;
+
+-- Views
+drop view if exists Customer;
+drop view if exists Host;
+
+drop view if exists ListingInfo;
+drop view if exists ListingCalendarInfo;
+drop view if exists ReservedCalendarInfo;
+
+drop view if exists ReviewEntities;
+
+
+-- Tables
+drop table if exists Review;
+
+drop table if exists ReservedCalendar;
+drop table if exists ListingCalendar;
+drop table if exists Payment;
+
+drop table if exists PropertyAmenities;
+drop table if exists Property;
+drop table if exists PropertyNeighbourhoodCleansing;
+drop table if exists PropertyTypeDomain;
+drop table if exists Listing;
+
+drop table if exists HostVerificationSource;
+drop table if exists VerificationSourceDomain;
+drop table if exists HostAccount;
+
+drop table if exists CustomerAccount;
+drop table if exists UserAccount;
+-- *************************************************************************************************
+-- *************************************************************************************************
+
+
+
+
+
+-- *************************************************************************************************
+--				Create Tables/Relations
+-- *************************************************************************************************
+CREATE TABLE UserAccount
+     (
+        userId BIGINT AUTO_INCREMENT,
+        userName CHAR(100) Not Null,
+        userEmail CHAR(255)  UNIQUE CHECK(userEmail REGEXP "^[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]*?[a-zA-Z0-9._-]?@[a-zA-Z0-9][a-zA-Z0-9._-]*?[a-zA-Z0-9]?\\.[a-zA-Z]{2,63}$"),
+        password CHAR(30) Not Null DEFAULT('default@1234') CHECK(password REGEXP "^(?=.*[!@#$%^&*(),.?:{}|<>])[A-Za-z0-9!@#$%^&*(),.?:{}|<>]{8,20}$"),
+        PRIMARY KEY(userId)
+     );
+
+CREATE TABLE CustomerAccount
+     (
+        userId BIGINT,
+        isCustomerAccountActive BOOLEAN  Not Null,
+         
+        PRIMARY KEY(userId),
+        FOREIGN KEY(userId) REFERENCES UserAccount(userId)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+     );
+
+
+CREATE TABLE VerificationSourceDomain
+    (
+        source CHAR(100),
+        PRIMARY KEY(source)
+    );
+    
+    
+CREATE TABLE HostAccount
+    (
+        userId BIGINT,
+        hostUrl CHAR(255) Not Null UNIQUE,
+        hostSince DATE,
+        hostAbout TEXT,
+        isSuperhost BOOLEAN Not Null,
+        hostThumbnailUrl CHAR(255)  UNIQUE CHECK(hostThumbnailUrl REGEXP '^(http|https|ftp):\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-.,@?^=%&:/~+#]*[\\w\\-@?^=%&/~+#])?$'),
+        hostPictureUrl CHAR(255)  UNIQUE CHECK(hostPictureUrl REGEXP '^(http|https|ftp):\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-.,@?^=%&:/~+#]*[\\w\\-@?^=%&/~+#])?$'),
+        hostLocation CHAR(100),
+        hostNeighbourhood CHAR(100),        
+        -- response
+            response_time CHAR(100),
+            response_rate DECIMAL(5,2)  CHECK(response_rate >= 0),
+            acceptance_rate DECIMAL(5,2)  CHECK(acceptance_rate >= 0),
+        -- verification
+            hostIsIdentityVerified BOOLEAN Not Null,
+        isHostAccountActive BOOLEAN  Not Null,
+        
+        PRIMARY KEY(userId),
+        FOREIGN KEY(userId) REFERENCES UserAccount(userId)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+    );
+     
+CREATE TABLE HostVerificationSource
+    (
+        userId BIGINT,
+        source CHAR(100),
+        
+        PRIMARY KEY(userId, source),
+        FOREIGN KEY(userId) REFERENCES HostAccount(userId)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE,
+        FOREIGN KEY(source) REFERENCES VerificationSourceDomain(source)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+    );
+     
+     
+     
+-- Listing + Property
+CREATE TABLE Listing
+     (
+        listingId BIGINT AUTO_INCREMENT,
+        listingUrl CHAR(255) UNIQUE,  -- Allowed null on purpose (Since: simpleFunction(autogenerated listingId)) --> Hence, first created & then set
+        listingName CHAR(255),
+        listingDescription TEXT,
+        listingPictureUrl CHAR(255) Not Null UNIQUE CHECK(listingPictureUrl REGEXP '^(http|https|ftp):\\/\\/[\\w\\-]+(\\.[\\w\\-]+)+([\\w\\-.,@?^=%&:/~+#]*[\\w\\-@?^=%&/~+#])?$'),
+        listingLicense CHAR(25),
+        listingInstantBookable BOOLEAN Not Null,
+        -- restrictions
+            listingMinimumNights INT  CHECK(listingMinimumNights >= 0),
+            listingMaximumNights INT  CHECK(listingMaximumNights >= 0),
+        
+        hostId BIGINT NOT NULL,
+         
+        PRIMARY KEY(listingId),
+        FOREIGN KEY(hostId) REFERENCES HostAccount(userId)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT
+     );
+     
+
+CREATE TABLE PropertyNeighbourhoodCleansing
+     (
+		propertyNeighbourhoodCleansed CHAR(255),
+        propertyNeighbourhood CHAR(255),
+		
+        PRIMARY KEY(propertyNeighbourhoodCleansed)
+     );
+    
+    
+CREATE TABLE PropertyTypeDomain
+	(
+		propertyType CHAR(100),
+        
+        PRIMARY KEY(propertyType)
+    );
+
+
+CREATE TABLE Property
+     (
+        listingId BIGINT,
+        propertyType CHAR(100) Not Null,
+        roomType ENUM('Shared room', 'Private room', 'Hotel room', 'Entire home/apt') Not null,
+        accommodates INT  Not Null CHECK(accommodates >= 0),
+        -- bathroom
+            noBathrooms DECIMAL(4, 1)  CHECK(noBathrooms >= 0),
+            bathroomType ENUM( 'bath', 'shared half bath', 'shared bath', 'half bath', 'private half bath', 'private bath'),
+        -- bedroom
+            noBedrooms INT  CHECK(noBedrooms >= 0),
+            noBeds INT  CHECK(noBeds >= 0),
+        -- neighbour
+            propertyNeighborhoodOverview TEXT,
+            propertyNeighbourhoodCleansed CHAR(255),
+        propertyCoordinates POINT Not Null,  -- Uses latitude and longitude
+		
+        PRIMARY KEY(listingId),
+        FOREIGN KEY(propertyType) REFERENCES PropertyTypeDomain(propertyType)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT,
+        FOREIGN KEY(propertyNeighbourhoodCleansed) REFERENCES PropertyNeighbourhoodCleansing(propertyNeighbourhoodCleansed)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT,
+        FOREIGN KEY(listingId) REFERENCES Listing(listingId)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+     );
+     
+     
+CREATE TABLE PropertyAmenities
+     (
+        listingId BIGINT,
+        amenity CHAR(100),
+         
+        PRIMARY KEY(listingId, amenity),
+        FOREIGN KEY(listingId) REFERENCES Property(listingId)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+     );
+
+
+-- Reviews
+CREATE TABLE Review
+     (
+        reviewId BIGINT AUTO_INCREMENT,
+        listingId BIGINT Not Null,
+        reviewDate DATE Not Null,
+        reviewerId BIGINT Not NUll,
+        reviewComments TEXT Not Null,
+         
+        PRIMARY KEY(reviewId),
+        FOREIGN KEY(listingId) REFERENCES Listing(listingId)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT,
+        FOREIGN KEY(reviewerId) REFERENCES CustomerAccount(userId)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE
+     );
+     
+
+-- Payment
+CREATE TABLE Payment
+     (
+        paymentId BIGINT AUTO_INCREMENT,
+        interacId CHAR(255)  Not Null CHECK(interacId REGEXP "^[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]*?[a-zA-Z0-9._-]?@[a-zA-Z0-9][a-zA-Z0-9._-]*?[a-zA-Z0-9]?\\.[a-zA-Z]{2,63}$"),
+        paymentStatus ENUM('Pending', 'Completed', 'Cancelled', 'Refunded'),
+		
+        PRIMARY KEY(paymentId)
+     );
+
+
+-- ListingAvailableDays + Reservation
+CREATE TABLE ListingCalendar
+     (
+        listingId BIGINT,
+        listingCalendar_Date DATE,
+        listingCalendar_isAvailable BOOLEAN  Not Null,
+        listingCalendar_Price DECIMAL(10, 2)  CHECK(listingCalendar_Price BETWEEN 0 AND 50000)  Not Null,
+        listingCalendar_AdjustedPrice DECIMAL(10, 2)  CHECK(listingCalendar_AdjustedPrice BETWEEN 0 AND 50000)  Not Null,
+         
+        CHECK (listingCalendar_AdjustedPrice <= listingCalendar_Price),
+        
+        PRIMARY KEY(listingId, listingCalendar_Date),
+        FOREIGN KEY(listingId) REFERENCES Listing(listingId)
+            ON UPDATE CASCADE
+            ON DELETE RESTRICT
+     );
+
+CREATE TABLE ReservedCalendar
+     (
+        listingId BIGINT,
+        listingCalendar_Date DATE,
+        customerId BIGINT,
+        paymentId BIGINT,
+         
+        PRIMARY KEY(listingId, listingCalendar_Date),
+        FOREIGN KEY(listingId, listingCalendar_Date) REFERENCES ListingCalendar(listingId, listingCalendar_Date)
+            ON UPDATE CASCADE
+            ON DELETE CASCADE,
+        FOREIGN KEY(customerId) REFERENCES CustomerAccount(userId)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL,
+        FOREIGN KEY(paymentId) REFERENCES Payment(paymentId)
+            ON UPDATE CASCADE
+            ON DELETE SET NULL
+     );
+-- *************************************************************************************************
+-- *************************************************************************************************
+     
+
+
+
+-- *************************************************************************************************
+--				Additional Constraints --> Via TRIGGERS
+-- *************************************************************************************************
+-- Host
+DELIMITER @@
+CREATE TRIGGER constraintHostSince
+    BEFORE INSERT ON HostAccount
+    FOR EACH ROW
+        BEGIN
+            IF NEW.hostSince > CURDATE() THEN
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'hostSince must be a current or prior date';
+            END IF;
+        END;
+@@
+
+-- Review
+CREATE TRIGGER constraintReviewDate
+    BEFORE INSERT ON Review
+    FOR EACH ROW
+        BEGIN
+            IF NEW.reviewDate > CURDATE() THEN
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'ReviewDate must be a current or prior date';
+            END IF;
+        END;
+@@
+DELIMITER 
+
+-- *************************************************************************************************
+-- *************************************************************************************************

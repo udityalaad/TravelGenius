@@ -1,0 +1,14 @@
+.bookingcard-wrapper {
+    border: 1px solid blue;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 5px;
+    width: 30%;
+    height: 25%;
+    float: left;
+}
+
+
+button.add-review {
+
+}

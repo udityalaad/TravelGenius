@@ -1,0 +1,206 @@
+************************************************************************************************************
+										Syllabus
+************************************************************************************************************
+GRADING:	Worth 30% of the total-grade
+			--> Only the final deliverables are graded
+			--> However, if you do not submit a proposal and/or do not receive feedback indicating that it is “acceptable” then it is highly likely that you will receive a poor grade on your project
+
+GROUP-SIZE:	2
+
+SCHEDULE/DEADLINES:
+	----------------------------------------------------------------------------
+	      Item 				Due Date 		Expected Outcome
+	----------------------------------------------------------------------------
+	 Team Formation 		Feb 15th 	Find a partner for the project
+	 Initial Proposal 		Feb 22nd 	Half-page project proposal with sources
+	 Proposal Feedback 		Feb 29th 	Accept/Modify/Start Again
+	 Final Proposal 		Mar 6th 	Final proposal must be approved
+	 Final Deliverables 	Apr 7th 	Final project deliverables due
+	----------------------------------------------------------------------------
+	The final deliverables are due on Friday, 7th April at 5:00 PM, Waterloo time.
+
+
+FINAL DELIVERABLES:
+	1. Written Report: 	in the format of a conference/journal submission
+	2. Code: 			in the university git repository; must include testcases 
+	3. Video Demo: 		a half-hour walk-through/presentation of your project; it should be done in the style of a conference presentation
+	
+	--> Keep taking informal-feedback from time-to-time (especially w.r.t. Design) - to make sure we are on right track.
+	
+************************************************************************************************************
+
+
+
+
+************************************************************************************************************
+										Project.pdf (for details)
+************************************************************************************************************
+OVERALL:
+	1. select a non-trivial dataset, thinking not just about the dataset size and complexity, but also the purpose for which you are selecting it;
+	2. create an appropriate database design for that dataset;
+	3. implement a prototype of the design, both server-side and client-side;
+	4. data-mine some aspect of the dataset.
+	
+
+Potential Sources for the Data-Set:
+	1. https://www.kaggle.com/datasets/
+	2. https://duckduckgo.com/?t=ffab&q=large+dataset+sources+free
+	3. https://www.forbes.com/sites/bernardmarr/2018/02/26/big-data-and-ai-30-amazing-and-free-public-data-sources-for-2018
+	4. https://www150.statcan.gc.ca/n1/en/type/data
+	
+
+INITIAL PROPOSAL:
+	• Must contain:
+		1. The dataset selected, including the source
+		2. The purpose to which you intend to put it
+		3. A description of the ideal functionality of the client
+		4. A description of the more limited functionality that you expect to prototype
+		5. A proposed data-mining exercise that you will do on the dataset selected.
+			- This should primarily be in the form of some question that you wish to investigate and for which it is plausible that the dataset around which you are forming your project is likely to have data relevant to the question
+		
+	• Samples:
+		Refer:	SampleProposals.pdf  ->  i] Un*x File System Replacement
+										ii]	A Simple Social Network
+										
+	• (In short .. OWN): Choose a dataset:
+		i] That is non-trivial (of substantial (not big) size & complexity)
+		ii] with the client application in mind  ........ (NOTE: Client-app could be a simple Command-Line-Interface)
+		iii] that has Data-Mining application ..... (can be used for a question that you wish to investigate)
+
+DATASET:
+	• Must be unique per each group
+	• Cannot use NHL dataset
+
+REQUIREMENTS:
+	1] A command-line client application appropriate to the domain
+	2] An entity-relationship design to model the data
+	3] A relational schema based on the ER design
+	4] A data-mining investigation of the dataset
+	5] Create and implement a testcase-plan  ---->  To test various aspects of the project
+	
+	1] Client-Application:
+		• 	Must be appropriate to the dataset domain
+		• 	MUST allow for 2 key requirements:
+			   a] Querying
+			&  b] Modifying
+			the data in a way that a customer in the domain would do
+	
+		•  E.g. Used-car sales dataset (REFER:  Project.pdf)
+		
+		•  Inteface:  Could be
+			a] GUI
+			b] Simple command-line-interface (even with single-letter commands)
+			
+			NOTE: a more sophisticated interface will:
+				a] Not affect grading
+				b] Will make creating testcases (to demonstrate quality of finished product) more difficult.
+		
+		•  TO-DOs:
+				a] What you think an ideal client should be able to do
+				b' What you plan to actually implement for your client given the time constraints
+					(i.e. SCOPE your project accordingly ..... since this is a course-project)
+				c] (At the end of the project, when you write your report) What you actually implemented from your plan, and what you left
+				d] An explanation justifying each of the above choices
+		
+	2] ER-Design:
+		•  An ER-Design that contains the following:
+			a] All entity sets, specifying the entity set name and attributes, showing any compound attributes, multivalued attributes, and optional attributes per the methods described in the course
+			b] All relationship sets, specifying the relationship set name and any attributes it might have
+			c] All primary keys, cardinality constraints, and attribute domains
+			d] Any weak, specialized, or aggregations
+			e] Any other aspects relevant to an ER design
+			
+		•  TO-DOs:
+			a] Create an ER-Diagram for the design
+				+ Explain the choice of entity sets, relationship sets, etc
+			b] (Wherever applicable) Specify the the alternatives that were considered & reason for final choice (among alternatives)
+			
+	3] Relational-Schema:
+		•  TO-DOs:
+			a] Convert ER-Design to relational-schema.
+				i.e. Write SQL queries to:
+				  i] create the required tables, views, etc. for the relational schema
+				 ii] create the required primary keys, foreign keys, and integrity constraints
+				iii] create indexes as necessary for the query operations you will do both in the client and in the data-mining exercise
+				 iv] load the data from your dataset CSVs into the tables
+				 
+			b] Handle and document issues w.r.t. 'errors & incomsistencies' in data relative to your design.
+			   •  Handle the issues in appropriate ways, including:
+				  i] fixing obvious data errors
+				 ii] removing any duplicate data
+				iii] modifying your design in certain cases
+				......... etc
+				
+			   •  Document: How the respective issues were handled
+		   
+	4] Data-Mining Investigation:
+		•  - Given a large set of data, we can determine information from that data.
+		   - Data represents facts. We wish to see if those facts allow us to formulate a theory about something, and to validate that theory if possible.
+		   
+		•  TO-DOs:
+			a] Select a domain-appropriate question that you want data mining to answer
+			b] Select a technique or techniques that will be appropriate to the question you are investigating
+				-> 3 techniques will be taought in the course:
+					  i] Classification
+					 ii] Association discovery
+					iii] Clustering
+				-> Requirement:  Implement 1 of the techniques to answer the domain specific question		
+			c] Implement said technique efficiently to build a data model
+			d] Determine the validity of your model
+			e] Report the results of your investigation
+			
+			
+FINAL DELIVERABLES:
+	1] Final Written Report:
+		• That describes: 	a] the client application
+							b] the ER design
+							c] the relational schema
+							d] your data-mining investigation
+			detailing the specific issues required above.
+			
+		• + In addition:	e]  a testcase plan
+								- that describes how you test the various code aspects of your project.
+								
+	2] Code:
+		• Store (not SUBMIT) the following in University GitHub Repo (https://git.uwaterloo.ca/)
+			a] All client code
+			b] The SQL code necessary to implement the relational schema and load the data from the CSV files
+			c] The code, SQL and otherwise, needed to implement your data-mining investigation
+			d] Test cases for the above
+		
+	3] Video Demo:
+		•  A 20-minute walk-through/presentation of your project.
+		•  Must describe all of the aspects of your design, implementation, and results.
+	
+************************************************************************************************************
+
+
+
+
+************************************************************************************************************
+										SPECIAL NOTES
+************************************************************************************************************
+NOTE:
+	a] There are no formal intermediate deliverables for this project. However, it is strongly recommended that as you go through the term you report progress and solicit feedback from the course instruction team.
+
+	b] A suggested project timeline will be made available to help you in this regard.
+	
+************************************************************************************************************
+
+
+
+
+************************************************************************************************************
+										DOUBTS
+************************************************************************************************************
+DOUBTS:
+	i] Can we create a MENU-DRIVEN CLI interface ?
+	ii] Do we need to create test-cases for the client-application ?
+	iii] Give an example of a domain-specific question for the 'Data Mining Investigation'.
+	iv] What kind of test plan is the professor expecting:  unit-testing; integration-testing; and/or system (end-to-end) testing ; etc
+	
+************************************************************************************************************
+
+
+
+
