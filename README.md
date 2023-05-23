@@ -105,7 +105,8 @@ https://github.com/othneildrew/Best-README-Template -->
   <spacer type="vertical" height="4" width="2"></spacer>
 
   * **Dependent Attribute:** How do we measure success ?
-We have 2 Relations - **‘ListingCalendar’** (Availabilities for a listing on multiple unique days, which may also be reserved) & **‘ReservedCalendar’** (ListingCalendar that are reserved by customers). Hence we define:
+ 
+    We have 2 Relations - **‘ListingCalendar’** (Availabilities for a listing on multiple unique days, which may also be reserved) & **‘ReservedCalendar’** (ListingCalendar that are reserved by customers). Hence we define:
 
         SuccessRate(listingId) = |ReservedCalendar(listingId)| / |ListingCalendar(listingId)|
 
@@ -114,7 +115,7 @@ We have 2 Relations - **‘ListingCalendar’** (Availabilities for a listing on
   <spacer type="vertical" height="4" width="2"></spacer>
 
   * **Independent Attibutes:** Subset of features associated with listings
-    (For Selection Criteria, please refer: [Project_Report.pdf](https://github.com/udityalaad/TravelGenius/blob/main/Project_Report.pdf))
+    (**For Selection Criteria, please refer:** [Project_Report.pdf](https://github.com/udityalaad/TravelGenius/blob/main/Project_Report.pdf))
   
   <spacer type="vertical" height="4" width="2"></spacer>
 
