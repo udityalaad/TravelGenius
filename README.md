@@ -86,7 +86,7 @@ https://github.com/othneildrew/Best-README-Template -->
 
 <!-- Overview -->
 ## Abstract
-<p align="center">[<img src="Read_Me_Content/Overview/YoutubeVideo.JPG" alt="YoutubeVideo" width="750">](https://youtu.be/neEtsIxrcA8)</p>
+[<img src="Read_Me_Content/Overview/YoutubeVideo.JPG" alt="YoutubeVideo" width="750">](https://youtu.be/neEtsIxrcA8)
 
   #### Client Application:
   Current decade has taken the concept of globalization to a larger scale, which has also lead to a boom of tourism industry in multiple countries around the world. And with technology at the face of enabling smooth travel planning and arrangement, the demand for centralized systems to facilitate reservation and management of temporary stay accommodations has grown exponentially in the last 2 decades. Customers (specially travellers) prefer an all-in-one interface where they can find ideal accommodations, book and manage reservations, make payments and so on. As for hosts, they prefer an interface to list and manage their properties. Airbnb, of late, has been a major player in the hospitality industry and has made available a wealth of data from their system that spans many regions. This project makes use of these large Airbnb datasets, translates them to a non-trivial relational form and provides a centralized client application to facilitate stay reservations and listings management for customers and hosts respectively.
