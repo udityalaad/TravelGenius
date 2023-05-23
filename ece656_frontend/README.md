@@ -1,5 +1,5 @@
 ### `Start the REST APIs`
-Using this [repo]([https://git.uwaterloo.ca/ulaad/backend_travelgenius](https://github.com/udityalaad/TravelGenius/tree/main/backend_travelgenius))
+Using this [repo](https://github.com/udityalaad/TravelGenius/tree/main/backend_travelgenius)
 
 ### `npm i`
 It's node project. To install, all the project related dependencies use the above command.
