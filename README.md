@@ -14,7 +14,7 @@ https://github.com/othneildrew/Best-README-Template -->
   .
 
   <p align="center">
-    An end-to-end solution to decode your everyday hunger demands !
+    A novel approach to System Design for Machine Learning !
   </p>
 </div>
  
