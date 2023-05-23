@@ -12,20 +12,7 @@
 
 <br>
 
-# Step 2 -  Setup the Database (Option 1: Use Marmoset Server)
-1. OPEN: `.env` file from the parent directory
-2. For `CONNECTION_STRING`, update the following as per your MySQL setup:**
-	- host: marmoset03.shoshin.uwaterloo.ca
-	- user: `<your username>`
-	- password: `<your password>`
-	- Database: 'Group13'
-
-NOTE: If you wish to try out Unit testing for the REST APIs, a either a local setup or permission to create temporary database on Marmoset will be required.
-Please refer 'Option 2' for local-setup
-
-<br>
-
-# Step 2 -  Setup the Database (Option 2: Local Setup)
+# Step 2 -  Setup the Database (Local Setup)
 ## Initial Data Loading `(Toronto Region)`
 1. **Create a new connection:** in MySQL (CLI / Workbench)
    - ###### NOTE: to start server in mac, use:
