@@ -39,6 +39,13 @@ https://github.com/othneildrew/Best-README-Template -->
 <!-- ABOUT THE PROJECT -->
 ## About The Project
   ‘Travel Genius’ is a short-term accommodation portal to demonstrate an innovative approach to System & DB Design, Query Optimization, Scalability, Data Mining and utilization of Machine Learning & LLMs in modern applications.
+  
+  #### This sample project covers three main aspects:
+  1. Data store (Design & Setup)
+  2. Client Application
+  3. Utilizing Machine Learning to derive valuable insights
+  
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
   &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/MySql.JPG" alt="MySQL_Logo" width="100"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/nodejs.png" alt="NodeJS_Logo" width="68"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/expressJS.png" alt="ExpressJS_Logo" width="68"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/react.png" alt="React_Logo" width="68"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/Python.JPG" alt="Python_Logo" width="67"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/tensorFlow.png" alt="TensorFlow_Logo" width="60">
