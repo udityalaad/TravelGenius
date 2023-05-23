@@ -68,19 +68,17 @@ https://github.com/othneildrew/Best-README-Template -->
   #### Setup & Use
   1. ##### Database
      * Follow instructions provided in:  [backend_travelgenius](https://github.com/udityalaad/TravelGenius/blob/main/backend_travelgenius/Readme.md)
-  
 
   2. ##### Client Application
      * Set-up & Run Microservices as per instructions provided in:  [backend_travelgenius](https://github.com/udityalaad/TravelGenius/blob/main/backend_travelgenius/Readme.md)
-    
      * Set-up & Run Front-end application as per instructions provided in:  [ece656_frontend](https://github.com/udityalaad/TravelGenius/blob/main/ece656_frontend/README.md)
 
   3. ##### Data Analysis
-     1. Open Jupyter Notebook: [__ datamining_/DataMining.ipynb](https://github.com/udityalaad/TravelGenius/blob/main/__datamining_/DataMining.ipynb)
-     2. Uncomment Code in 'Code-Block-1'
-     3. Fill-in **'username'** & **'password'** of MySQL DB (Setup in Step-1) in 'Code-Block-1'
-     4. Setup Python Environment
-     5. Run the Jupyter Notebook
+     * **Open Jupyter Notebook:** [__ datamining_/DataMining.ipynb](https://github.com/udityalaad/TravelGenius/blob/main/__datamining_/DataMining.ipynb)
+     * **Uncomment Code:** in 'Code-Block-1'
+     * **Replace in CodeBlock-1:**  *'username'* & *'password'* of MySQL DB (Setup in Step-1)
+     * **Setup:** Python Environment
+     * **Run:** Jupyter Notebook
      
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
