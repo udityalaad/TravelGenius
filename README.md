@@ -38,24 +38,12 @@ https://github.com/othneildrew/Best-README-Template -->
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-  ‘FoodBell’ is an asynchronous solution for facilitating subscription-based (recurring) meal services – using a dedicated application, secure micro-service architecture and CI/CD approach.
-  
-  ##### Objectives
-  * The Objective is to create a unified solution ‘Food Bell’ -a web application that provides an interface for facilitating subscription-based meal services by connecting customers to the right vendors.
-  * This system will save major efforts involved in exploring meal and vendor options for the customers.
-  * With the help of this system, vendors would have a hassle-free experience in managing and tracking all their orders.
-  * The solution aims at fulfilling the demand and supply gap in the food industry.
-  
-  <p align="center"><img src="Read_Me_Content/Overview/Scenario.jfif" alt="Scenario"></p>
-  
-  <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+  ‘Travel Genius’ is a short-term accommodation portal to demonstrate an innovative approach to System & DB Design, Query Optimization, Scalability, Data Mining and utilization of Machine Learning & LLMs in modern applications.
 
 ## Built With
-  &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/Java.JPG" alt="Java_Logo" width="70"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/SpringBoot.png" alt="Spring_Boot_Logo" width="75"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/MySql.JPG" alt="MySQL_Logo" width="110"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/react.png" alt="React_Logo" width="70"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/js.JPG" alt="JS_Logo" width="60"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/selenium.png" alt="Selenium_Logo" width="65">
+  &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/MySql.JPG" alt="MySQL_Logo" width="100"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/nodejs.png" alt="NodeJS_Logo" width="68"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/expressJS.png" alt="ExpressJS_Logo" width="68"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/react.png" alt="React_Logo" width="68"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/Python.JPG" alt="Python_Logo" width="67"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="Read_Me_Content/Tech/tensorFlow.png" alt="TensorFlow_Logo" width="60">
 
-  &nbsp; &nbsp; &nbsp; &nbsp; <b><i> Java </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> Spring Boot </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> MySQL </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> React </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> JavaScript </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> Selenium </i></b>
+  &nbsp; &nbsp; &nbsp; &nbsp; <b><i> MySQL </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> NodeJS </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> ExpressJS </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> React </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> Python </i></b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <b><i> TensorFlow </i></b>
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,59 +52,75 @@ https://github.com/othneildrew/Best-README-Template -->
 <!-- GETTING STARTED -->
 ## Getting Started
   #### Prerequisites
-  * Java, Spring Boot Framework, MySQL Workbench, Selenium Extension
-  * Apache Tomcat Server
-  * Node.js
-  * IDE - Eclipse or IntelliJ (Preferred)
+  * Python, MySQL
+  * NodeJS
+  * Dependencies (Configured in each application)
+  * IDE - VS Code (Preferred)
   * Minimum - 4GB RAM, Intel i5 CPU (or Equivalent)
 
   #### Setup & Use
-  1. ##### Set-up Microservices and and UIClient
-     1. Get <b>'FoodBellApp'</b> from the parent directory.
-     2. Import <b>'FoodBellApp'</b> to IDE.
+  1. ##### Database
+     * Follow instructions provided in:  [backend_travelgenius](https://github.com/udityalaad/TravelGenius/blob/main/backend_travelgenius/Readme.md)
+  
 
-  2. ##### Set-up Database
-     1. Get <b>'Important Files/SQL_PreTest_Commands.txt'</b>.
-     2. Set-up a new Database in SQL Workbench.
-     3. Start the database.
-     4. Copy the DB credentials.
+  2. ##### Client Application
+     * Set-up & Run Microservices as per instructions provided in:  [backend_travelgenius](https://github.com/udityalaad/TravelGenius/blob/main/backend_travelgenius/Readme.md)
+    
+     * Set-up & Run Front-end application as per instructions provided in:  [ece656_frontend](https://github.com/udityalaad/TravelGenius/blob/main/ece656_frontend/README.md)
 
-  3. ##### Connect Database and Microservices
-     1. Update the following files (corresponding to each microservice) with newly set-up database credentials:
-        * FoodBellApp/OrderMgmntService/src/main/resources/application.properties
-        * FoodBellApp/UserMgmntService/src/main/resources/application.properties
-     2. Run commands from <b>'Important Files/SQL_PreTest_Commands.txt'</b> in SQL workbench.
+  3. ##### Data Analysis
+     1. Open Jupyter Notebook: [__ datamining_/DataMining.ipynb](https://github.com/udityalaad/TravelGenius/blob/main/__datamining_/DataMining.ipynb)
+     2. Uncomment Code in 'Code-Block-1'
+     3. Fill-in **'username'** & **'password'** of MySQL DB (Setup in Step-1) in 'Code-Block-1'
+     4. Setup Python Environment
+     5. Run the Jupyter Notebook
      
-  <p align="center"><img src="Read_Me_Content/Overview/Flow.JPG" alt="Flow"></p>
-
-  4. ##### Run and use the application
-     1. Start the following microservices (in squence):
-        * UserMgmntService
-        * OrderMgmntService
-     2. Start the Application Gateway & End-application (UIClient)
-     3. Open the respective port in a web-browser.
-     4. You are all set.
-
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- Overview -->
 ## Overview
-  #### Technical Brief:
-  * Created an optimal ‘vendor-consumer’ model & leveraged it to design the user application with targeted functionalities.
-  * Architected a secure Micro-service model, with a Gateway facilitating 3 different services (consumer, vendor, auth).
-  * Allowed real time communication between vendor & consumer platforms; used Cron jobs to facilitate automated changes.  .
+  ### Abstract
+
+  [![Travel Genius | A novel approach to System Design for Machine Learning: 55]
+(https://github.com/udityalaad/TravelGenius/blob/main/backend_travelgenius/__docs__/Data_Mining_Images/CorrelationAndFrequency.png)] // Thumbnail
+(https://youtu.be/neEtsIxrcA8 "Travel Genius | A novel approach to System Design for Machine Learning: 55")    // Video Link
+
+  #### Client Application:
+  Current decade has taken the concept of globalization to a larger scale, which has also lead to a boom of tourism industry in multiple countries around the world. And with technology at the face of enabling smooth travel planning and arrangement, the demand for centralized systems to facilitate reservation and management of temporary stay accommodations has grown exponentially in the last 2 decades. Customers (specially travellers) prefer an all-in-one interface where they can find ideal accommodations, book and manage reservations, make payments and so on. As for hosts, they prefer an interface to list and manage their properties. Airbnb, of late, has been a major player in the hospitality industry and has made available a wealth of data from their system that spans many regions. This project makes use of these large Airbnb datasets, translates them to a non-trivial relational form and provides a centralized client application to facilitate stay reservations and listings management for customers and hosts respectively.
 
   <spacer type="vertical" height="4" width="2"></spacer>
+  <p align="center"><img src="Read_Me_Content/Overview/architecture.jpg" alt="Detailed rchitecture" width="800"></p>
+
+  <spacer type="vertical" height="4" width="2"></spacer>
+
+  * **Sample Run:**
+  <p align="center"><img src="Read_Me_Content/Overview/Sample_Run.png" alt="Sample Run" width="1000"></p>
+
+  #### Data Analysis:
+  * **Domain Appropriate Question:** What is the likelihood of success for a listing with respect to its features ?
   
-  #### Detailed Architecture:
-  <p align="center"><img src="Read_Me_Content/Overview/architecture.jpg" alt="Detailed rchitecture"></p>
+  <spacer type="vertical" height="4" width="2"></spacer>
+
+  * **Dependent Attribute:** How do we measure success ?
+We have 2 Relations - **‘ListingCalendar’** (Availabilities for a listing on multiple unique days, which may also be reserved) & **‘ReservedCalendar’** (ListingCalendar that are reserved by customers). Hence we define:
+
+        SuccessRate(listingId) = |ReservedCalendar(listingId)| / |ListingCalendar(listingId)|
+
+    **'Success-Rate'** is not directly available as a field in the database. Hence, we trigger an SQL query to compute this field and associate it with the corresponding Listing features via the Jupyter Notebook.
 
   <spacer type="vertical" height="4" width="2"></spacer>
 
-  #### Sample Run:
-  <p align="center"><img src="Read_Me_Content/Overview/Sample_Run.jpg" alt="Sample Run" width="800"></p>
+  * **Independent Attibutes:** Subset of features associated with listings
+    (For Selection Criteria, please refer: [Project_Report.pdf](https://github.com/udityalaad/TravelGenius/blob/main/Project_Report.pdf))
+  
+  <spacer type="vertical" height="4" width="2"></spacer>
+
+  * **Sample Run:**
+  <p align="center"><img src="Read_Me_Content/Overview/CorrelationAndFrequency.png" alt="CorrelationAndFrequency"></p>
+
+  <p align="center"><img src="Read_Me_Content/Overview/K_Fold_Results.png" alt="K_Fold_Results" width="700"></p>
   .
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +142,7 @@ https://github.com/othneildrew/Best-README-Template -->
   
   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; udityalaad123@gmail.com
 
-  <b>Project Link</b> &nbsp; [https://github.com/udityalaad/FoodBell](https://github.com/udityalaad/FoodBell)
+  <b>Project Link</b> &nbsp; [https://github.com/udityalaad/TravelGenius](https://github.com/udityalaad/TravelGenius)
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,7 +151,12 @@ https://github.com/othneildrew/Best-README-Template -->
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
   * Many thanks to Prof. Paul Ward (ECE 656, University of Waterloo) for his guidance and assistance throughout the project.
+  * [Airbnb, Listings and Review dataset](http://insideairbnb.com/get-the-data/)
+  * [Email-Regular Expression, Stack Overflow](https://stackoverflow.com/questions/15560004/mysql-check-constraint-for-email-addresses)
+  * [Regular Expression, Regex 101](https://regex101.com/)
+  * [Tensorflow Keras - MLP](https://www.tensorflow.org/guide/core/mlp_core)
+  * [Feature Selection with sklearn and Pandas](https://towardsdatascience.com/feature-selection-with-pandas-e3690ad8504b)
   * [github.com/othneildrew/Best-README-Template/](https://github.com/othneildrew/Best-README-Template)
-  * [Traditional Food Around The World: 50 Famous Dishes You Have To Try](https://www.travlinmad.com/blog/traditional-food-around-the-world)
+  * [Simplifying Machine Learning with Omnia and Polyaxon](https://infohub.delltechnologies.com/p/simplifying-machine-learning-with-omnia-and-polyaxon/)
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
