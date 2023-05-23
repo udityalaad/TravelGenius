@@ -6,7 +6,12 @@ https://github.com/othneildrew/Best-README-Template -->
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="Read_Me_Content/TopLogo.jpg" alt="TopLogo.jpg" width="200">
+  <h1><i>Travel Genius</i></h1>
+
+
+  
+  <img src="Read_Me_Content/top_label.jpg" alt="top_label.jpg">
+  . 
 
 
   
@@ -124,11 +129,7 @@ https://github.com/othneildrew/Best-README-Template -->
 <!-- LICENSE -->
 ## License or Author
   * Uditya Laad
-  * Shubhanki Gupta
-  * Harpreet Jolly
-  * Vijiithaa Sasidharan
-  * Premchander Satheesh
-  * Varun Seem
+  * Niravkumar Talaviya
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,7 +151,7 @@ https://github.com/othneildrew/Best-README-Template -->
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-  * Many thanks to Prof. Krzysztof Czarnecki (ECE 653, University of Waterloo) for his guidance and assistance throughout the project.
+  * Many thanks to Prof. Paul Ward (ECE 656, University of Waterloo) for his guidance and assistance throughout the project.
   * [github.com/othneildrew/Best-README-Template/](https://github.com/othneildrew/Best-README-Template)
   * [Traditional Food Around The World: 50 Famous Dishes You Have To Try](https://www.travlinmad.com/blog/traditional-food-around-the-world)
 
