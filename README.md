@@ -11,11 +11,6 @@ https://github.com/othneildrew/Best-README-Template -->
 
   
   <img src="Read_Me_Content/top_label.jpg" alt="top_label.jpg">
-  . 
-
-
-  
-  <img src="Read_Me_Content/top_label.jpg" alt="top_label.jpg">
   .
 
   <p align="center">
